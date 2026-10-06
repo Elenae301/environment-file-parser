@@ -1,6 +1,6 @@
 {
   "name": "environment-file-parser",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Parses .env files with proper quoting, escaping, comments, and variable expansion rules.",
   "type": "module",
   "main": "src/index.js",
