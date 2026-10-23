@@ -25,3 +25,10 @@ Single-quoted values are **literal**: no `$VAR` expansion and no backslash escap
 A `#` begins a comment only at the start of a line or when preceded by whitespace within an unquoted value. `URL=https://host/path#frag` is the literal string including `#frag`, because `#` is not preceded by whitespace.
 
 Duplicate keys are silently kept as first-defined; this matches shell `source` semantics and keeps the parser side-effect free.
+
+## Design notes
+
+The window stores values eagerly rather than keeping running aggregates. Running
+sums drift with floating point over long streams, and recomputing from a small
+buffer is cheap enough that the drift is not worth the speed.
+
